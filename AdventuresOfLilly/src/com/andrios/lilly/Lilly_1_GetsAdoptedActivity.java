@@ -56,7 +56,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		flipper = (ViewFlipper) findViewById(R.id.viewFlipper1); 
 		flipper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_in));
 	    flipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_out));  
-	    try{
+	    
 	    	 lilly_1_1_TXT = (TextView) findViewById(R.id.lilly_1_1_TXT);
 	 	    lilly_1_1_TXT.getBackground().setAlpha(90);
 	 	    
@@ -80,9 +80,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	 	    
 	 	    lilly_1_8_TXT = (TextView) findViewById(R.id.lilly_1_8_TXT);
 	 	    lilly_1_8_TXT.getBackground().setAlpha(90);
-	    }catch(Exception e){
-	    	
-	    }
+	   
 	   
 	}
 
@@ -95,6 +93,8 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 				if(!isChecked){
 					
 					stopRead();
+				}else{
+					startAutoRead();
 				}
 				
 			}
@@ -247,6 +247,12 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 				break; 	
 				
 		}
+		try{
+			mp.stop();
+		}catch(Exception e){
+			
+		}
+		
 		try{
 			
 				mp = MediaPlayer.create(Lilly_1_GetsAdoptedActivity.this, audioFile);  

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="#ffffff" android:orientation="vertical">
+  
+   <LinearLayout android:id="@+id/linearLayout1" android:background="#33cc00" android:layout_width="fill_parent" android:layout_height="50dip" android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="AndriOS"
+            android:textColor="#000000"
+            android:textSize="40dp" >
+</TextView>
+        <LinearLayout android:layout_width="wrap_content" android:layout_weight="1" android:layout_height="fill_parent" android:id="@+id/journalListActivityListView"></LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:layout_width="fill_parent" android:id="@+id/linearLayout1" android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_andrios"
+            android:textColor="#000000"
+            android:textSize="36dp" >
+
+</TextView>
+    </LinearLayout>
+    <LinearLayout android:layout_width="fill_parent" android:id="@+id/linearLayout2" android:layout_height="wrap_content" android:gravity="bottom|right" android:layout_weight="1">
+        <ImageView android:id="@+id/imageView1" android:src="@drawable/andrios" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY"></ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/aboutActivityFacebookBTN"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:background="@drawable/facebook" >
+        </Button>
+
+        <Button
+            android:id="@+id/aboutActivityTwitterBTN"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:background="@drawable/twitter" >
+        </Button>
+
+        <Button
+            android:id="@+id/aboutActivityEmailBTN"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:background="@drawable/email" >
+        </Button>
+
+        <Button
+            android:id="@+id/aboutActivityMarketBTN"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:background="@drawable/google_market" >
+        </Button>
+    </LinearLayout>
+  
+</LinearLayout>

@@ -21,11 +21,12 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
 			            android:id="@+id/lilly_1_1_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
+			            android:background="@color/black"
 			            android:text="@string/lilly_1_1"
 			            android:textSize="36dip" />
 
@@ -60,11 +61,12 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
 			            android:id="@+id/lilly_1_2_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
+			            android:background="@color/black"
 			            android:text="@string/lilly_1_2"
 			            android:textSize="36dip" />
 
@@ -101,11 +103,12 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
 			            android:id="@+id/lilly_1_3_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
+			            android:background="@color/black"
 			            android:text="@string/lilly_1_3"
 			            android:textSize="36dip" />
 
@@ -140,11 +143,12 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
 			            android:id="@+id/lilly_1_4_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
+			            android:background="@color/black"
 			            android:text="@string/lilly_1_4"
 			            android:textSize="36dip" />
 
@@ -179,11 +183,12 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
 			            android:id="@+id/lilly_1_5_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
+			            android:background="@color/black"
 			            android:text="@string/lilly_1_5"
 			            android:textSize="36dip" />
 
@@ -218,11 +223,12 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
 			            android:id="@+id/lilly_1_6_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
+			            android:background="@color/black"
 			            android:text="@string/lilly_1_6"
 			            android:textSize="36dip" />
 
@@ -257,11 +263,12 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
 			            android:id="@+id/lilly_1_7_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
+			            android:background="@color/black"
 			            android:text="@string/lilly_1_7"
 			            android:textSize="36dip" />
 
@@ -296,11 +303,12 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
 			            android:id="@+id/lilly_1_8_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
+			            android:background="@color/black"
 			            android:text="@string/lilly_1_8"
 			            android:textSize="36dip" />
 

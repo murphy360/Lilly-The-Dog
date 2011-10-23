@@ -10,6 +10,7 @@ import android.widget.Button;
 
 public class AdventuresofLillyActivity extends Activity {
     
+	Button aboutBTN;
 	Button lilly_1_BTN;
 	
 	/** Called when the activity is first created. */
@@ -25,10 +26,21 @@ public class AdventuresofLillyActivity extends Activity {
 
 	private void setConnections() {
 		lilly_1_BTN = (Button) findViewById(R.id.mainActivityLilly_1_BTN);
-		
+		aboutBTN = (Button) findViewById(R.id.mainActivityAboutBTN);
 	}
 
 	private void setOnclickListeners() {
+		
+		aboutBTN.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				Intent intent = new Intent(v.getContext(), AboutActivity.class);
+				
+				startActivity(intent);
+			}
+			
+		});
+		
 		lilly_1_BTN.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
