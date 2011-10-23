@@ -24,6 +24,8 @@ public class AdventuresofLillyActivity extends Activity {
         setOnclickListeners();
     }
 
+    
+    
 	private void setConnections() {
 		lilly_1_BTN = (Button) findViewById(R.id.mainActivityLilly_1_BTN);
 		aboutBTN = (Button) findViewById(R.id.mainActivityAboutBTN);

@@ -33,12 +33,12 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical" >
-
+
             <Button
                 android:id="@+id/mainActivityLilly_1_BTN"
                 android:layout_width="75dip"
                 android:layout_height="75dip"
-                android:background="@drawable/button_adopted"
+                android:background="@drawable/lilly_icon_2"
                 android:text="" />
 
             <TextView

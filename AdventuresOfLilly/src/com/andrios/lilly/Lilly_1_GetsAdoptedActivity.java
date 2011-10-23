@@ -46,6 +46,11 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
         setOnClickListeners();
         
     }
+    
+    public void onPause(){
+    	super.onPause();
+    	stopRead();
+    }
 
 	private void setConnections() {
 		
