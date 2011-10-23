@@ -332,13 +332,13 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="horizontal" >
-
+
 	    <LinearLayout
 	        android:id="@+id/linearLayout11"
 	        android:layout_width="wrap_content"
 	        android:layout_height="fill_parent"
 	        android:layout_weight="1"
-	        android:orientation="vertical" >
+	        android:orientation="horizontal" >
 
 	        <Button
 	            android:id="@+id/lilly_1_backBTN"
@@ -346,6 +346,28 @@
 	            android:layout_height="60dip"
 	            android:background="@drawable/minus"
 	            android:text=" " />
+
+	    </LinearLayout>
+
+	    <LinearLayout
+	        android:id="@+id/linearLayout3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="fill_parent"
+	        android:layout_weight="1" >
+
+	        <ToggleButton
+	            android:id="@+id/lilly_1_autoRead_ToggleButton"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="ToggleButton" />
+
+	        <TextView
+	            android:id="@+id/textView1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="Auto Read"
+	            android:textAppearance="?android:attr/textAppearanceLarge" />
+
 	    </LinearLayout>
 
 	    <LinearLayout
@@ -363,6 +385,7 @@
 	            android:background="@drawable/plus"
 	            android:text=" " />
 	    </LinearLayout>
+
 	</LinearLayout>
 
 </LinearLayout>

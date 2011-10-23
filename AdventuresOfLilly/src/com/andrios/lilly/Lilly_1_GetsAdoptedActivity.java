@@ -2,6 +2,7 @@ package com.andrios.lilly;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
@@ -10,8 +11,11 @@ import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 import android.widget.ViewFlipper;
 
 public class Lilly_1_GetsAdoptedActivity extends Activity {
@@ -26,6 +30,9 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	TextView lilly_1_6_TXT;
 	TextView lilly_1_7_TXT;
 	TextView lilly_1_8_TXT;
+	
+	ToggleButton autoRead;
+	
 	MediaPlayer mp;
 	
 	/** Called when the activity is first created. */
@@ -41,6 +48,8 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
     }
 
 	private void setConnections() {
+		
+		autoRead = (ToggleButton) findViewById(R.id.lilly_1_autoRead_ToggleButton);
 		fwdBTN = (Button) findViewById(R.id.lilly_1_fwdBTN);
 		backBTN = (Button) findViewById(R.id.lilly_1_backBTN);
 		
@@ -78,11 +87,29 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	}
 
 	private void setOnClickListeners() {
+		
+		autoRead.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+
+			public void onCheckedChanged(CompoundButton buttonView,
+					boolean isChecked) {
+				if(!isChecked){
+					
+					stopRead();
+				}
+				
+			}
+			
+		});
+		
 		fwdBTN.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				mp.stop();
-				flipper.showNext();
+				stopRead();
+				if(flipper.getDisplayedChild() < flipper.getChildCount()-1){
+					flipper.showNext();
+					startAutoRead();
+				}
+				
 				
 			}
 			
@@ -91,9 +118,11 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		backBTN.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				mp.stop();
-				flipper.showPrevious();
-				
+				stopRead();
+				if(flipper.getDisplayedChild() > 0){
+					flipper.showPrevious();
+					startAutoRead();
+				}
 			}
 			
 		});
@@ -103,7 +132,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 			public void onClick(View v) {
 				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
 						Toast.LENGTH_SHORT).show();
-				 playAudio(R.raw.audio_lilly_1_1);
+				 playAudio(1);
 				
 			}
 			
@@ -114,7 +143,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 			public void onClick(View v) {
 				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
 						Toast.LENGTH_SHORT).show();
-				 playAudio(R.raw.audio_lilly_1_2);
+				 playAudio(2);
 				
 			}
 			
@@ -125,7 +154,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 			public void onClick(View v) {
 				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
 						Toast.LENGTH_SHORT).show();
-				 playAudio(R.raw.audio_lilly_1_3);
+				 playAudio(3);
 				
 			}
 			
@@ -136,7 +165,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 			public void onClick(View v) {
 				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
 						Toast.LENGTH_SHORT).show();
-				 playAudio(R.raw.audio_lilly_1_4);
+				 playAudio(4);
 				
 			}
 			
@@ -147,7 +176,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 			public void onClick(View v) {
 				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
 						Toast.LENGTH_SHORT).show();
-				 playAudio(R.raw.audio_lilly_1_5);
+				 playAudio(5);
 				
 			}
 			
@@ -158,7 +187,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 			public void onClick(View v) {
 				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
 						Toast.LENGTH_SHORT).show();
-				 playAudio(R.raw.audio_lilly_1_6);
+				 playAudio(6);
 				
 			}
 			
@@ -169,7 +198,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 			public void onClick(View v) {
 				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
 						Toast.LENGTH_SHORT).show();
-				 playAudio(R.raw.audio_lilly_1_7);
+				 playAudio(7);
 				
 			}
 			
@@ -180,7 +209,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 			public void onClick(View v) {
 				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
 						Toast.LENGTH_SHORT).show();
-				 playAudio(R.raw.audio_lilly_1_8);
+				 playAudio(8);
 				
 			}
 			
@@ -189,21 +218,72 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	}
 	
 	private void playAudio(int audio){
+		int audioFile = 0;
+		switch (audio){
+
+			case 1:
+				audioFile = R.raw.audio_lilly_1_1;
+				break;
+			case 2:
+				audioFile = R.raw.audio_lilly_1_2;
+				break;  
+			case 3:
+				audioFile = R.raw.audio_lilly_1_3;
+				break; 
+			case 4:
+				audioFile = R.raw.audio_lilly_1_4;
+				break; 
+			case 5:
+				audioFile = R.raw.audio_lilly_1_5;
+				break; 
+			case 6:
+				audioFile = R.raw.audio_lilly_1_6;
+				break; 
+			case 7:
+				audioFile = R.raw.audio_lilly_1_7;
+				break; 
+			case 8:
+				audioFile = R.raw.audio_lilly_1_8;
+				break; 	
+				
+		}
 		try{
-			 Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "I'm Playing some Audio",
-						Toast.LENGTH_SHORT).show();
-				mp = MediaPlayer.create(Lilly_1_GetsAdoptedActivity.this, audio);  
+			
+				mp = MediaPlayer.create(Lilly_1_GetsAdoptedActivity.this, audioFile);  
 				  mp.start();
 				  mp.setOnCompletionListener(new OnCompletionListener() {
 
                        public void onCompletion(MediaPlayer mp) {
                            // TODO Auto-generated method stub
                            mp.release();
+                           if(autoRead.isChecked()){
+                        	   System.out.println("displayed child" + flipper .getDisplayedChild());
+                        	   System.out.println("child cound" + flipper.getChildCount());
+                        	   if(flipper.getDisplayedChild() < flipper.getChildCount()-1){
+               					flipper.showNext();
+               				 startAutoRead();
+               					}
+                        	  
+                           }
                        }
 
                    });
 				}catch(Exception e){
 					e.printStackTrace();
 				}
+	}
+	
+	private void startAutoRead(){
+		if(autoRead.isChecked()){
+			playAudio(flipper.getDisplayedChild() + 1);
+		}
+	}
+	
+	private void stopRead(){
+		try{
+			mp.stop();
+		}catch(Exception e){
+			
+		}
 	}
 }

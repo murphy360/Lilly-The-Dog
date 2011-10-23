@@ -239,6 +239,26 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <ToggleButton
+                android:id="@+id/lilly_1_autoRead_ToggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Auto Read"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/linearLayout12"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
