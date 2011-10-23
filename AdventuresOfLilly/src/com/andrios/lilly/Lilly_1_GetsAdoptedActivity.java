@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 public class Lilly_1_GetsAdoptedActivity extends Activity {
@@ -46,30 +47,34 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		flipper = (ViewFlipper) findViewById(R.id.viewFlipper1); 
 		flipper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_in));
 	    flipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_out));  
-	    
-	    lilly_1_1_TXT = (TextView) findViewById(R.id.lilly_1_1_TXT);
-	    lilly_1_1_TXT.getBackground().setAlpha(90);
-	    
-	    lilly_1_2_TXT = (TextView) findViewById(R.id.lilly_1_2_TXT);
-	    lilly_1_2_TXT.getBackground().setAlpha(90);
-	    
-	    lilly_1_3_TXT = (TextView) findViewById(R.id.lilly_1_3_TXT);
-	    lilly_1_3_TXT.getBackground().setAlpha(90);
-	    
-	    lilly_1_4_TXT = (TextView) findViewById(R.id.lilly_1_4_TXT);
-	    lilly_1_4_TXT.getBackground().setAlpha(90);
-	    
-	    lilly_1_5_TXT = (TextView) findViewById(R.id.lilly_1_5_TXT);
-	    lilly_1_5_TXT.getBackground().setAlpha(90);
-	    
-	    lilly_1_6_TXT = (TextView) findViewById(R.id.lilly_1_6_TXT);
-	    lilly_1_6_TXT.getBackground().setAlpha(90);
-	    
-	    lilly_1_7_TXT = (TextView) findViewById(R.id.lilly_1_7_TXT);
-	    lilly_1_7_TXT.getBackground().setAlpha(90);
-	    
-	    lilly_1_8_TXT = (TextView) findViewById(R.id.lilly_1_8_TXT);
-	    lilly_1_8_TXT.getBackground().setAlpha(90);
+	    try{
+	    	 lilly_1_1_TXT = (TextView) findViewById(R.id.lilly_1_1_TXT);
+	 	    lilly_1_1_TXT.getBackground().setAlpha(90);
+	 	    
+	 	    lilly_1_2_TXT = (TextView) findViewById(R.id.lilly_1_2_TXT);
+	 	    lilly_1_2_TXT.getBackground().setAlpha(90);
+	 	    
+	 	    lilly_1_3_TXT = (TextView) findViewById(R.id.lilly_1_3_TXT);
+	 	    lilly_1_3_TXT.getBackground().setAlpha(90);
+	 	    
+	 	    lilly_1_4_TXT = (TextView) findViewById(R.id.lilly_1_4_TXT);
+	 	    lilly_1_4_TXT.getBackground().setAlpha(90);
+	 	    
+	 	    lilly_1_5_TXT = (TextView) findViewById(R.id.lilly_1_5_TXT);
+	 	    lilly_1_5_TXT.getBackground().setAlpha(90);
+	 	    
+	 	    lilly_1_6_TXT = (TextView) findViewById(R.id.lilly_1_6_TXT);
+	 	    lilly_1_6_TXT.getBackground().setAlpha(90);
+	 	    
+	 	    lilly_1_7_TXT = (TextView) findViewById(R.id.lilly_1_7_TXT);
+	 	    lilly_1_7_TXT.getBackground().setAlpha(90);
+	 	    
+	 	    lilly_1_8_TXT = (TextView) findViewById(R.id.lilly_1_8_TXT);
+	 	    lilly_1_8_TXT.getBackground().setAlpha(90);
+	    }catch(Exception e){
+	    	
+	    }
+	   
 	}
 
 	private void setOnClickListeners() {
@@ -94,7 +99,11 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		lilly_1_1_TXT.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
+				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
+						Toast.LENGTH_SHORT).show();
 				 try{
+					 Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "I'm Playing some Audio",
+								Toast.LENGTH_SHORT).show();
 						mp = MediaPlayer.create(Lilly_1_GetsAdoptedActivity.this, R.raw.audio_lilly_1_1);  
 						  mp.start();
 						  mp.setOnCompletionListener(new OnCompletionListener() {
