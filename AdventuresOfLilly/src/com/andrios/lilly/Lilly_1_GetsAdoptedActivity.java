@@ -81,6 +81,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		fwdBTN.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
+				mp.stop();
 				flipper.showNext();
 				
 			}
@@ -90,6 +91,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		backBTN.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
+				mp.stop();
 				flipper.showPrevious();
 				
 			}
@@ -101,26 +103,107 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 			public void onClick(View v) {
 				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
 						Toast.LENGTH_SHORT).show();
-				 try{
-					 Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "I'm Playing some Audio",
-								Toast.LENGTH_SHORT).show();
-						mp = MediaPlayer.create(Lilly_1_GetsAdoptedActivity.this, R.raw.audio_lilly_1_1);  
-						  mp.start();
-						  mp.setOnCompletionListener(new OnCompletionListener() {
-
-		                        public void onCompletion(MediaPlayer mp) {
-		                            // TODO Auto-generated method stub
-		                            mp.release();
-		                        }
-
-		                    });
-						}catch(Exception e){
-							e.printStackTrace();
-						}
+				 playAudio(R.raw.audio_lilly_1_1);
 				
 			}
 			
 		});
 		
+		lilly_1_2_TXT.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
+						Toast.LENGTH_SHORT).show();
+				 playAudio(R.raw.audio_lilly_1_2);
+				
+			}
+			
+		});
+		
+		lilly_1_3_TXT.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
+						Toast.LENGTH_SHORT).show();
+				 playAudio(R.raw.audio_lilly_1_3);
+				
+			}
+			
+		});
+		
+		lilly_1_4_TXT.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
+						Toast.LENGTH_SHORT).show();
+				 playAudio(R.raw.audio_lilly_1_4);
+				
+			}
+			
+		});
+		
+		lilly_1_5_TXT.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
+						Toast.LENGTH_SHORT).show();
+				 playAudio(R.raw.audio_lilly_1_5);
+				
+			}
+			
+		});
+		
+		lilly_1_6_TXT.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
+						Toast.LENGTH_SHORT).show();
+				 playAudio(R.raw.audio_lilly_1_6);
+				
+			}
+			
+		});
+		
+		lilly_1_7_TXT.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
+						Toast.LENGTH_SHORT).show();
+				 playAudio(R.raw.audio_lilly_1_7);
+				
+			}
+			
+		});
+		
+		lilly_1_8_TXT.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
+						Toast.LENGTH_SHORT).show();
+				 playAudio(R.raw.audio_lilly_1_8);
+				
+			}
+			
+		});
+		
+	}
+	
+	private void playAudio(int audio){
+		try{
+			 Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "I'm Playing some Audio",
+						Toast.LENGTH_SHORT).show();
+				mp = MediaPlayer.create(Lilly_1_GetsAdoptedActivity.this, audio);  
+				  mp.start();
+				  mp.setOnCompletionListener(new OnCompletionListener() {
+
+                       public void onCompletion(MediaPlayer mp) {
+                           // TODO Auto-generated method stub
+                           mp.release();
+                       }
+
+                   });
+				}catch(Exception e){
+					e.printStackTrace();
+				}
 	}
 }
