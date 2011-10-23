@@ -21,13 +21,14 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
-			            android:id="@+id/textView1"
+			            android:id="@+id/lilly_1_1_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
 			            android:text="@string/lilly_1_1"
 			            android:textSize="36dip" />
+
 			    </LinearLayout>
 
 			    <LinearLayout
@@ -59,13 +60,14 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
-			            android:id="@+id/TextView01"
+			            android:id="@+id/lilly_1_2_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
 			            android:text="@string/lilly_1_2"
 			            android:textSize="36dip" />
+
 			    </LinearLayout>
 
 			    <LinearLayout
@@ -99,13 +101,14 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
-			            android:id="@+id/TextView02"
+			            android:id="@+id/lilly_1_3_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
 			            android:text="@string/lilly_1_3"
 			            android:textSize="36dip" />
+
 			    </LinearLayout>
 
 			    <LinearLayout
@@ -137,13 +140,14 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
-			            android:id="@+id/TextView03"
+			            android:id="@+id/lilly_1_4_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
 			            android:text="@string/lilly_1_4"
 			            android:textSize="36dip" />
+
 			    </LinearLayout>
 
 			    <LinearLayout
@@ -175,13 +179,14 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
-			            android:id="@+id/TextView04"
+			            android:id="@+id/lilly_1_5_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
 			            android:text="@string/lilly_1_5"
 			            android:textSize="36dip" />
+
 			    </LinearLayout>
 
 			    <LinearLayout
@@ -213,13 +218,14 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
-			            android:id="@+id/TextView05"
+			            android:id="@+id/lilly_1_6_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
 			            android:text="@string/lilly_1_6"
 			            android:textSize="36dip" />
+
 			    </LinearLayout>
 
 			    <LinearLayout
@@ -251,13 +257,14 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
-			            android:id="@+id/TextView06"
+			            android:id="@+id/lilly_1_7_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
 			            android:text="@string/lilly_1_7"
 			            android:textSize="36dip" />
+
 			    </LinearLayout>
 
 			    <LinearLayout
@@ -289,13 +296,14 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
-			            android:id="@+id/TextView07"
+			            android:id="@+id/lilly_1_8_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
 			            android:text="@string/lilly_1_8"
 			            android:textSize="36dip" />
+
 			    </LinearLayout>
 
 			    <LinearLayout

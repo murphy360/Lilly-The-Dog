@@ -1,6 +1,9 @@
 package com.andrios.lilly;
 
+
 import android.app.Activity;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -22,6 +25,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	TextView lilly_1_6_TXT;
 	TextView lilly_1_7_TXT;
 	TextView lilly_1_8_TXT;
+	MediaPlayer mp;
 	
 	/** Called when the activity is first created. */
     @Override
@@ -82,6 +86,28 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 
 			public void onClick(View v) {
 				flipper.showPrevious();
+				
+			}
+			
+		});
+		
+		lilly_1_1_TXT.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				 try{
+						mp = MediaPlayer.create(Lilly_1_GetsAdoptedActivity.this, R.raw.audio_lilly_1_1);  
+						  mp.start();
+						  mp.setOnCompletionListener(new OnCompletionListener() {
+
+		                        public void onCompletion(MediaPlayer mp) {
+		                            // TODO Auto-generated method stub
+		                            mp.release();
+		                        }
+
+		                    });
+						}catch(Exception e){
+							e.printStackTrace();
+						}
 				
 			}
 			
