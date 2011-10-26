@@ -48,7 +48,7 @@
                 <ImageView
                     android:id="@+id/ImageView01"
                     android:layout_width="200dp"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="31dp"
                     android:layout_marginLeft="207dp"
                     android:scaleType="fitXY"
@@ -94,7 +94,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:orientation="horizontal" >
-
+
                 <ImageView
                     android:id="@+id/ImageView03"
                     android:layout_width="wrap_content"
@@ -202,7 +202,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:src="@drawable/lilly_1_8" />
-
+
                 <TextView
                     android:id="@+id/lilly_1_8_TXT"
                     android:layout_width="wrap_content"
@@ -212,7 +212,61 @@
                     android:background="@color/black"
                     android:text="@string/lilly_1_8"
                     android:textSize="22dp" />
+
             </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/lilly_1_9"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/ImageView08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/lilly_1_8" />
+
+                <TextView
+                    android:id="@+id/lilly_1_9_TXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:background="@color/black"
+                    android:text="@string/lilly_1_9"
+                    android:textSize="22dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/lilly_1_10"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/ImageView09"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/lilly_1_8" />
+
+                <TextView
+                    android:id="@+id/lilly_1_10_TXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:background="@color/black"
+                    android:text="@string/lilly_1_10"
+                    android:textSize="22dp" />
+
+            </RelativeLayout>
+
         </ViewFlipper>
 
     </LinearLayout>

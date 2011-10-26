@@ -30,6 +30,8 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	TextView lilly_1_6_TXT;
 	TextView lilly_1_7_TXT;
 	TextView lilly_1_8_TXT;
+	TextView lilly_1_9_TXT;
+	TextView lilly_1_10_TXT;
 	
 	ToggleButton autoRead;
 	
@@ -85,6 +87,12 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	 	    
 	 	    lilly_1_8_TXT = (TextView) findViewById(R.id.lilly_1_8_TXT);
 	 	    lilly_1_8_TXT.getBackground().setAlpha(90);
+	 	    
+	 	    lilly_1_9_TXT = (TextView) findViewById(R.id.lilly_1_9_TXT);
+	 	    lilly_1_9_TXT.getBackground().setAlpha(90);
+	 	    
+	 	    lilly_1_10_TXT = (TextView) findViewById(R.id.lilly_1_10_TXT);
+	 	    lilly_1_10_TXT.getBackground().setAlpha(90);
 	   
 	   
 	}
@@ -220,6 +228,28 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 			
 		});
 		
+		lilly_1_9_TXT.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
+						Toast.LENGTH_SHORT).show();
+				 playAudio(9);
+				
+			}
+			
+		});
+		
+		lilly_1_10_TXT.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
+						Toast.LENGTH_SHORT).show();
+				 playAudio(10);
+				
+			}
+			
+		});
+		
 	}
 	
 	private void playAudio(int audio){
@@ -249,6 +279,12 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 				break; 
 			case 8:
 				audioFile = R.raw.audio_lilly_1_8;
+				break; 	 
+			case 9:
+				audioFile = R.raw.audio_lilly_1_9;
+				break; 	 
+			case 10:
+				audioFile = R.raw.audio_lilly_1_10;
 				break; 	
 				
 		}
@@ -272,7 +308,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
                         	   System.out.println("child cound" + flipper.getChildCount());
                         	   if(flipper.getDisplayedChild() < flipper.getChildCount()-1){
                					flipper.showNext();
-               				 startAutoRead();
+               					startAutoRead();
                					}
                         	  
                            }

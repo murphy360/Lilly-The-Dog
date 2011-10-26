@@ -21,14 +21,14 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
 			            android:id="@+id/lilly_1_1_TXT"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
 			            android:background="@color/black"
 			            android:text="@string/lilly_1_1"
-			            android:textSize="36dip" />
+			            android:textSize="32dp" />
 
 			    </LinearLayout>
 
@@ -39,12 +39,14 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <ImageView
 			            android:id="@+id/imageView1"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
+			            android:scaleType="fitXY"
 			            android:src="@drawable/lilly_1_1" />
+
 			    </LinearLayout>
 			</LinearLayout>
 
@@ -303,7 +305,7 @@
 			        android:layout_weight="1"
 			        android:gravity="center"
 			        android:orientation="vertical" >
-
+
 			        <TextView
 			            android:id="@+id/lilly_1_8_TXT"
 			            android:layout_width="wrap_content"
@@ -329,7 +331,86 @@
 			            android:src="@drawable/lilly_1_8" />
 			    </LinearLayout>
 			</LinearLayout>
+
+			<LinearLayout
+			    android:id="@+id/lilly_1_9"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:orientation="horizontal" >
 
+			    <LinearLayout
+			        android:id="@+id/LinearLayout11"
+			        android:layout_width="100dip"
+			        android:layout_height="fill_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:orientation="vertical" >
+
+			        <TextView
+			            android:id="@+id/lilly_1_9_TXT"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:background="@color/black"
+			            android:text="@string/lilly_1_9"
+			            android:textSize="36dip" />
+
+			    </LinearLayout>
+
+			    <LinearLayout
+			        android:id="@+id/LinearLayout06"
+			        android:layout_width="100dip"
+			        android:layout_height="fill_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:orientation="vertical" >
+
+			        <ImageView
+			            android:id="@+id/ImageView08"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:src="@drawable/lilly_1_8" />
+			    </LinearLayout>
+			</LinearLayout>
+
+			<LinearLayout
+			    android:id="@+id/lilly_1_10"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:orientation="horizontal" >
+
+			    <LinearLayout
+			        android:id="@+id/LinearLayout19"
+			        android:layout_width="100dip"
+			        android:layout_height="fill_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:orientation="vertical" >
+
+			        <TextView
+			            android:id="@+id/lilly_1_10_TXT"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:background="@color/black"
+			            android:text="@string/lilly_1_10"
+			            android:textSize="36dip" />
+
+			    </LinearLayout>
+
+			    <LinearLayout
+			        android:id="@+id/LinearLayout17"
+			        android:layout_width="100dip"
+			        android:layout_height="fill_parent"
+			        android:layout_weight="1"
+			        android:gravity="center"
+			        android:orientation="vertical" >
+
+			        <ImageView
+			            android:id="@+id/ImageView09"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:src="@drawable/lilly_1_8" />
+			    </LinearLayout>
+			</LinearLayout>
 
 		</ViewFlipper>
 
