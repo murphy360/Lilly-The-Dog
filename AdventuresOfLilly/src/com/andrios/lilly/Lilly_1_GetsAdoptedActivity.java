@@ -33,10 +33,12 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	TextView lilly_1_9_TXT;
 	TextView lilly_1_10_TXT;
 	
-	ToggleButton autoRead;
-	ToggleButton textToggle;
+	Button autoRead;
+	Button textToggle;
 	
 	MediaPlayer mp;
+	
+	boolean isText, isRead;
 	
 	/** Called when the activity is first created. */
     
@@ -57,9 +59,11 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 
 	private void setConnections() {
 		
-		autoRead = (ToggleButton) findViewById(R.id.lilly_1_autoRead_ToggleButton);
-		textToggle = (ToggleButton) findViewById(R.id.lilly_1_text_ToggleButton);
-		textToggle.setChecked(true);
+		autoRead = (Button) findViewById(R.id.lilly_1_autoRead_ToggleButton);
+		isRead = false;
+		textToggle = (Button) findViewById(R.id.lilly_1_text_ToggleButton);
+		isText = true;
+		
 		fwdBTN = (Button) findViewById(R.id.lilly_1_fwdBTN);
 		backBTN = (Button) findViewById(R.id.lilly_1_backBTN);
 		
@@ -67,7 +71,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		flipper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_in));
 	    flipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_out));  
 	    
-	    	 lilly_1_1_TXT = (TextView) findViewById(R.id.lilly_1_1_TXT);
+	    	lilly_1_1_TXT = (TextView) findViewById(R.id.lilly_1_1_TXT);
 	 	    lilly_1_1_TXT.getBackground().setAlpha(95);
 	 	    
 	 	    lilly_1_2_TXT = (TextView) findViewById(R.id.lilly_1_2_TXT);
@@ -99,55 +103,70 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	   
 	   
 	}
-
+	
+	private void toggleText(){
+		isText = !isText;
+		if(!isText){
+			
+			textToggle.setBackgroundResource(R.drawable.button_text_off);
+			lilly_1_1_TXT.setVisibility(View.GONE);
+			lilly_1_2_TXT.setVisibility(View.GONE);
+			lilly_1_3_TXT.setVisibility(View.GONE);
+			lilly_1_4_TXT.setVisibility(View.GONE);
+			lilly_1_5_TXT.setVisibility(View.GONE);
+			lilly_1_6_TXT.setVisibility(View.GONE);
+			lilly_1_7_TXT.setVisibility(View.GONE);
+			lilly_1_8_TXT.setVisibility(View.GONE);
+			lilly_1_9_TXT.setVisibility(View.GONE);
+			lilly_1_10_TXT.setVisibility(View.GONE);
+	   
+		}else{
+			textToggle.setBackgroundResource(R.drawable.button_text_on);
+			lilly_1_1_TXT.setVisibility(View.VISIBLE);
+			lilly_1_2_TXT.setVisibility(View.VISIBLE);
+			lilly_1_3_TXT.setVisibility(View.VISIBLE);
+			lilly_1_4_TXT.setVisibility(View.VISIBLE);
+			lilly_1_5_TXT.setVisibility(View.VISIBLE);
+			lilly_1_6_TXT.setVisibility(View.VISIBLE);
+			lilly_1_7_TXT.setVisibility(View.VISIBLE);
+			lilly_1_8_TXT.setVisibility(View.VISIBLE);
+			lilly_1_9_TXT.setVisibility(View.VISIBLE);
+			lilly_1_10_TXT.setVisibility(View.VISIBLE);
+		}
+	}
+	private void toggleAutoRead(){
+		isRead = !isRead;
+		if(!isRead){
+			
+			autoRead.setBackgroundResource(R.drawable.button_speech_off);
+			stopRead();
+	   
+		}else{
+			autoRead.setBackgroundResource(R.drawable.button_speech_on);
+			startAutoRead();
+		}
+	}
 	private void setOnClickListeners() {
 		
-		textToggle.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+		textToggle.setOnClickListener(new OnClickListener(){
 
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if(!isChecked){
-					
-					lilly_1_1_TXT.setVisibility(View.GONE);
-					lilly_1_2_TXT.setVisibility(View.GONE);
-					lilly_1_3_TXT.setVisibility(View.GONE);
-					lilly_1_4_TXT.setVisibility(View.GONE);
-					lilly_1_5_TXT.setVisibility(View.GONE);
-					lilly_1_6_TXT.setVisibility(View.GONE);
-					lilly_1_7_TXT.setVisibility(View.GONE);
-					lilly_1_8_TXT.setVisibility(View.GONE);
-					lilly_1_9_TXT.setVisibility(View.GONE);
-					lilly_1_10_TXT.setVisibility(View.GONE);
-			   
-				}else{
-					lilly_1_1_TXT.setVisibility(View.VISIBLE);
-					lilly_1_2_TXT.setVisibility(View.VISIBLE);
-					lilly_1_3_TXT.setVisibility(View.VISIBLE);
-					lilly_1_4_TXT.setVisibility(View.VISIBLE);
-					lilly_1_5_TXT.setVisibility(View.VISIBLE);
-					lilly_1_6_TXT.setVisibility(View.VISIBLE);
-					lilly_1_7_TXT.setVisibility(View.VISIBLE);
-					lilly_1_8_TXT.setVisibility(View.VISIBLE);
-					lilly_1_9_TXT.setVisibility(View.VISIBLE);
-					lilly_1_10_TXT.setVisibility(View.VISIBLE);
-				}
+			public void onClick(View arg0) {
+				toggleText();
 				
 			}
+
+			
 			
 		});
 		
-		autoRead.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+		autoRead.setOnClickListener(new OnClickListener(){
 
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if(!isChecked){
-					
-					stopRead();
-				}else{
-					startAutoRead();
-				}
+			public void onClick(View arg0) {
+				toggleAutoRead();
 				
 			}
+
+			
 			
 		});
 		
@@ -340,7 +359,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
                        public void onCompletion(MediaPlayer mp) {
                            // TODO Auto-generated method stub
                            mp.release();
-                           if(autoRead.isChecked()){
+                           if(isRead){
                         	   System.out.println("displayed child" + flipper .getDisplayedChild());
                         	   System.out.println("child cound" + flipper.getChildCount());
                         	   if(flipper.getDisplayedChild() < flipper.getChildCount()-1){
@@ -358,7 +377,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	}
 	
 	private void startAutoRead(){
-		if(autoRead.isChecked()){
+		if(isRead){
 			playAudio(flipper.getDisplayedChild() + 1);
 		}
 	}
