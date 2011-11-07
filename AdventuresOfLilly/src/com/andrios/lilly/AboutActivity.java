@@ -21,7 +21,7 @@ public class AboutActivity extends Activity {
 	//GoogleAnalyticsTracker tracker;
 	
     /** Called when the activity is first created. */
-    @Override
+    
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -38,13 +38,13 @@ public class AboutActivity extends Activity {
 				//getApplicationContext());
 	}
 
-	@Override
+	
 	public void onResume() {
 		super.onResume();
 		//tracker.trackPageView("/" + this.getLocalClassName());
 	}
 
-	@Override
+	
 	public void onPause() {
 		super.onPause();
 		//tracker.dispatch();

@@ -34,11 +34,12 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	TextView lilly_1_10_TXT;
 	
 	ToggleButton autoRead;
+	ToggleButton textToggle;
 	
 	MediaPlayer mp;
 	
 	/** Called when the activity is first created. */
-    @Override
+    
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -57,6 +58,8 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	private void setConnections() {
 		
 		autoRead = (ToggleButton) findViewById(R.id.lilly_1_autoRead_ToggleButton);
+		textToggle = (ToggleButton) findViewById(R.id.lilly_1_text_ToggleButton);
+		textToggle.setChecked(true);
 		fwdBTN = (Button) findViewById(R.id.lilly_1_fwdBTN);
 		backBTN = (Button) findViewById(R.id.lilly_1_backBTN);
 		
@@ -65,10 +68,10 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	    flipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_out));  
 	    
 	    	 lilly_1_1_TXT = (TextView) findViewById(R.id.lilly_1_1_TXT);
-	 	    lilly_1_1_TXT.getBackground().setAlpha(90);
+	 	    lilly_1_1_TXT.getBackground().setAlpha(95);
 	 	    
 	 	    lilly_1_2_TXT = (TextView) findViewById(R.id.lilly_1_2_TXT);
-	 	    lilly_1_2_TXT.getBackground().setAlpha(90);
+	 	    lilly_1_2_TXT.getBackground().setAlpha(95);
 	 	    
 	 	    lilly_1_3_TXT = (TextView) findViewById(R.id.lilly_1_3_TXT);
 	 	    lilly_1_3_TXT.getBackground().setAlpha(90);
@@ -98,6 +101,40 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	}
 
 	private void setOnClickListeners() {
+		
+		textToggle.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+
+			public void onCheckedChanged(CompoundButton buttonView,
+					boolean isChecked) {
+				if(!isChecked){
+					
+					lilly_1_1_TXT.setVisibility(View.GONE);
+					lilly_1_2_TXT.setVisibility(View.GONE);
+					lilly_1_3_TXT.setVisibility(View.GONE);
+					lilly_1_4_TXT.setVisibility(View.GONE);
+					lilly_1_5_TXT.setVisibility(View.GONE);
+					lilly_1_6_TXT.setVisibility(View.GONE);
+					lilly_1_7_TXT.setVisibility(View.GONE);
+					lilly_1_8_TXT.setVisibility(View.GONE);
+					lilly_1_9_TXT.setVisibility(View.GONE);
+					lilly_1_10_TXT.setVisibility(View.GONE);
+			   
+				}else{
+					lilly_1_1_TXT.setVisibility(View.VISIBLE);
+					lilly_1_2_TXT.setVisibility(View.VISIBLE);
+					lilly_1_3_TXT.setVisibility(View.VISIBLE);
+					lilly_1_4_TXT.setVisibility(View.VISIBLE);
+					lilly_1_5_TXT.setVisibility(View.VISIBLE);
+					lilly_1_6_TXT.setVisibility(View.VISIBLE);
+					lilly_1_7_TXT.setVisibility(View.VISIBLE);
+					lilly_1_8_TXT.setVisibility(View.VISIBLE);
+					lilly_1_9_TXT.setVisibility(View.VISIBLE);
+					lilly_1_10_TXT.setVisibility(View.VISIBLE);
+				}
+				
+			}
+			
+		});
 		
 		autoRead.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 
