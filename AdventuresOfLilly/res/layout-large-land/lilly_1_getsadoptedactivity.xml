@@ -374,11 +374,12 @@
         android:id="@+id/linearLayout2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        >
 
         <LinearLayout
             android:id="@+id/linearLayout11"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:orientation="horizontal" >
@@ -387,53 +388,43 @@
                 android:id="@+id/lilly_1_backBTN"
                 android:layout_width="100dip"
                 android:layout_height="60dip"
-                android:background="@drawable/minus"
+                android:background="@drawable/button_previous"
                 android:text=" " />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/LinearLayout01"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="fill_parent"
-            android:layout_weight="1" >
+            android:layout_weight="1"
+            android:gravity="center" >
 
-            <ToggleButton
+            <Button
                 android:id="@+id/lilly_1_text_ToggleButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ToggleButton" />
-
-            <TextView
-                android:id="@+id/TextView01"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Text"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_text_on"
+                android:text="" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout3"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="fill_parent"
-            android:layout_weight="1" >
+            android:layout_weight="1"
+            android:gravity="center" >
 
-            <ToggleButton
+            <Button
                 android:id="@+id/lilly_1_autoRead_ToggleButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ToggleButton" />
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Auto Read"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_speech_off"
+                android:text="" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout12"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:gravity="right"
@@ -443,7 +434,7 @@
                 android:id="@+id/lilly_1_fwdBTN"
                 android:layout_width="100dip"
                 android:layout_height="60dip"
-                android:background="@drawable/plus"
+                android:background="@drawable/button_next"
                 android:text=" " />
         </LinearLayout>
     </LinearLayout>
