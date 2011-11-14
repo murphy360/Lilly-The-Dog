@@ -62,6 +62,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		autoRead = (Button) findViewById(R.id.lilly_1_autoRead_ToggleButton);
 		isRead = false;
 		textToggle = (Button) findViewById(R.id.lilly_1_text_ToggleButton);
+	
 		isText = true;
 		
 		fwdBTN = (Button) findViewById(R.id.lilly_1_fwdBTN);
@@ -72,10 +73,10 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	    flipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_out));  
 	    
 	    	lilly_1_1_TXT = (TextView) findViewById(R.id.lilly_1_1_TXT);
-	 	    lilly_1_1_TXT.getBackground().setAlpha(95);
+	 	    lilly_1_1_TXT.getBackground().setAlpha(99);
 	 	    
 	 	    lilly_1_2_TXT = (TextView) findViewById(R.id.lilly_1_2_TXT);
-	 	    lilly_1_2_TXT.getBackground().setAlpha(95);
+	 	    lilly_1_2_TXT.getBackground().setAlpha(99);
 	 	    
 	 	    lilly_1_3_TXT = (TextView) findViewById(R.id.lilly_1_3_TXT);
 	 	    lilly_1_3_TXT.getBackground().setAlpha(90);
@@ -147,7 +148,6 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		}
 	}
 	private void setOnClickListeners() {
-		
 		textToggle.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View arg0) {
@@ -199,8 +199,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		lilly_1_1_TXT.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
-						Toast.LENGTH_SHORT).show();
+
 				 playAudio(1);
 				
 			}
