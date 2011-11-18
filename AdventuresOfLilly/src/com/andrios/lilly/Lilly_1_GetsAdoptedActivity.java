@@ -1,24 +1,32 @@
 package com.andrios.lilly;
 
 
+import java.util.ArrayList;
+
+
 import android.app.Activity;
-import android.content.Intent;
+import android.gesture.Gesture;
+import android.gesture.GestureLibraries;
+import android.gesture.GestureLibrary;
+import android.gesture.GestureOverlayView;
+import android.gesture.GestureOverlayView.OnGesturePerformedListener;
+import android.gesture.Prediction;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 import android.widget.ViewFlipper;
 
-public class Lilly_1_GetsAdoptedActivity extends Activity {
+public class Lilly_1_GetsAdoptedActivity extends Activity implements OnGesturePerformedListener {
    
 	Button fwdBTN, backBTN;
 	ViewFlipper flipper;
@@ -37,6 +45,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	Button textToggle;
 	
 	MediaPlayer mp;
+	GestureLibrary mLibrary;
 	
 	boolean isText, isRead;
 	
@@ -49,8 +58,22 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
         
         setConnections();
         setOnClickListeners();
+        mLibrary = GestureLibraries.fromRawResource(this, R.raw.gestures);
+        if (!mLibrary.load()) {
+            finish();
+        }
         
     }
+    
+    @Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.menu, menu);
+	    //menu.getItem(0).setIcon(R.drawable.button_text_on);
+	    //menu.getItem(1).setIcon(R.drawable.button_speech_off);
+	    
+	    return true;
+	}
     
     public void onPause(){
     	super.onPause();
@@ -59,18 +82,18 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 
 	private void setConnections() {
 		
-		autoRead = (Button) findViewById(R.id.lilly_1_autoRead_ToggleButton);
+		//autoRead = (Button) findViewById(R.id.lilly_1_autoRead_ToggleButton);
 		isRead = false;
-		textToggle = (Button) findViewById(R.id.lilly_1_text_ToggleButton);
+		//textToggle = (Button) findViewById(R.id.lilly_1_text_ToggleButton);
 	
 		isText = true;
 		
-		fwdBTN = (Button) findViewById(R.id.lilly_1_fwdBTN);
-		backBTN = (Button) findViewById(R.id.lilly_1_backBTN);
+		//fwdBTN = (Button) findViewById(R.id.lilly_1_fwdBTN);
+		//backBTN = (Button) findViewById(R.id.lilly_1_backBTN);
 		
 		flipper = (ViewFlipper) findViewById(R.id.viewFlipper1); 
-		flipper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_in));
-	    flipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_out));  
+		flipper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.push_right_in));
+	    flipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.push_right_out));  
 	    
 	    	lilly_1_1_TXT = (TextView) findViewById(R.id.lilly_1_1_TXT);
 	 	    lilly_1_1_TXT.getBackground().setAlpha(99);
@@ -103,13 +126,15 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	 	    lilly_1_10_TXT.getBackground().setAlpha(90);
 	   
 	   
+	 	   GestureOverlayView gestures = (GestureOverlayView) findViewById(R.id.lilly_1_gestureOverlay);
+	 	  gestures.addOnGesturePerformedListener(this);
 	}
 	
 	private void toggleText(){
 		isText = !isText;
 		if(!isText){
 			
-			textToggle.setBackgroundResource(R.drawable.button_text_off);
+			//textToggle.setBackgroundResource(R.drawable.button_text_off);
 			lilly_1_1_TXT.setVisibility(View.GONE);
 			lilly_1_2_TXT.setVisibility(View.GONE);
 			lilly_1_3_TXT.setVisibility(View.GONE);
@@ -122,7 +147,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 			lilly_1_10_TXT.setVisibility(View.GONE);
 	   
 		}else{
-			textToggle.setBackgroundResource(R.drawable.button_text_on);
+			//textToggle.setBackgroundResource(R.drawable.button_text_on);
 			lilly_1_1_TXT.setVisibility(View.VISIBLE);
 			lilly_1_2_TXT.setVisibility(View.VISIBLE);
 			lilly_1_3_TXT.setVisibility(View.VISIBLE);
@@ -138,17 +163,16 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 	private void toggleAutoRead(){
 		isRead = !isRead;
 		if(!isRead){
-			
-			autoRead.setBackgroundResource(R.drawable.button_speech_off);
+			//autoRead.setBackgroundResource(R.drawable.button_speech_off);
 			stopRead();
 	   
 		}else{
-			autoRead.setBackgroundResource(R.drawable.button_speech_on);
+			//autoRead.setBackgroundResource(R.drawable.button_speech_on);
 			startAutoRead();
 		}
 	}
 	private void setOnClickListeners() {
-		textToggle.setOnClickListener(new OnClickListener(){
+		/*textToggle.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View arg0) {
 				toggleText();
@@ -168,33 +192,33 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 
 			
 			
-		});
+		});*/
 		
-		fwdBTN.setOnClickListener(new OnClickListener(){
-
-			public void onClick(View v) {
-				stopRead();
-				if(flipper.getDisplayedChild() < flipper.getChildCount()-1){
-					flipper.showNext();
-					startAutoRead();
-				}
-				
-				
-			}
-			
-		});
-		
-		backBTN.setOnClickListener(new OnClickListener(){
-
-			public void onClick(View v) {
-				stopRead();
-				if(flipper.getDisplayedChild() > 0){
-					flipper.showPrevious();
-					startAutoRead();
-				}
-			}
-			
-		});
+//		fwdBTN.setOnClickListener(new OnClickListener(){
+//
+//			public void onClick(View v) {
+//				stopRead();
+//				if(flipper.getDisplayedChild() < flipper.getChildCount()-1){
+//					flipper.showNext();
+//					startAutoRead();
+//				}
+//				
+//				
+//			}
+//			
+//		});
+//		
+//		backBTN.setOnClickListener(new OnClickListener(){
+//
+//			public void onClick(View v) {
+//				stopRead();
+//				if(flipper.getDisplayedChild() > 0){
+//					flipper.showPrevious();
+//					startAutoRead();
+//				}
+//			}
+//			
+//		});
 		
 		lilly_1_1_TXT.setOnClickListener(new OnClickListener(){
 
@@ -209,8 +233,6 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		lilly_1_2_TXT.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
-						Toast.LENGTH_SHORT).show();
 				 playAudio(2);
 				
 			}
@@ -220,8 +242,6 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		lilly_1_3_TXT.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
-						Toast.LENGTH_SHORT).show();
 				 playAudio(3);
 				
 			}
@@ -231,8 +251,6 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		lilly_1_4_TXT.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
-						Toast.LENGTH_SHORT).show();
 				 playAudio(4);
 				
 			}
@@ -242,8 +260,6 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		lilly_1_5_TXT.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
-						Toast.LENGTH_SHORT).show();
 				 playAudio(5);
 				
 			}
@@ -253,8 +269,6 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		lilly_1_6_TXT.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
-						Toast.LENGTH_SHORT).show();
 				 playAudio(6);
 				
 			}
@@ -264,8 +278,6 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		lilly_1_7_TXT.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
-						Toast.LENGTH_SHORT).show();
 				 playAudio(7);
 				
 			}
@@ -275,8 +287,6 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		lilly_1_8_TXT.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
-						Toast.LENGTH_SHORT).show();
 				 playAudio(8);
 				
 			}
@@ -286,8 +296,6 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		lilly_1_9_TXT.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
-						Toast.LENGTH_SHORT).show();
 				 playAudio(9);
 				
 			}
@@ -297,8 +305,6 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		lilly_1_10_TXT.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				Toast.makeText(Lilly_1_GetsAdoptedActivity.this, "YOU CLICKED THE TEXT",
-						Toast.LENGTH_SHORT).show();
 				 playAudio(10);
 				
 			}
@@ -356,13 +362,10 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 				  mp.setOnCompletionListener(new OnCompletionListener() {
 
                        public void onCompletion(MediaPlayer mp) {
-                           // TODO Auto-generated method stub
                            mp.release();
                            if(isRead){
-                        	   System.out.println("displayed child" + flipper .getDisplayedChild());
-                        	   System.out.println("child cound" + flipper.getChildCount());
                         	   if(flipper.getDisplayedChild() < flipper.getChildCount()-1){
-               					flipper.showNext();
+               					pageNext();
                					startAutoRead();
                					}
                         	  
@@ -387,5 +390,57 @@ public class Lilly_1_GetsAdoptedActivity extends Activity {
 		}catch(Exception e){
 			
 		}
+	}
+	
+	public void onGesturePerformed(GestureOverlayView overlay, Gesture gesture) {
+	    ArrayList<Prediction> predictions = mLibrary.recognize(gesture);
+	    System.out.println("GESTURE");
+	    // We want at least one prediction
+	    if (predictions.size() > 0 && predictions.get(0).score > 1.0) {
+	        String action = predictions.get(0).name;
+	        System.out.println("Action Name: " + action);
+	        if ("left".equals(action)) {
+	        	if(flipper.getDisplayedChild() < flipper.getChildCount()-1){
+	        		pageNext();
+					startAutoRead();
+				}
+	        } else if ("right".equals(action)) {
+	        	if(flipper.getDisplayedChild() > 0){
+	        		pagePrevious();
+					startAutoRead();
+				}
+	        }
+	    }
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	    case R.id.menuTextBTN:
+	    	toggleText();
+	    	
+	        return true;
+	    	
+	    case R.id.menuReadBTN:
+	    	toggleAutoRead();
+	    	
+	        return true;
+	  
+	    default:
+	        return super.onOptionsItemSelected(item);
+	    }
+	}
+	
+	private void pagePrevious(){
+		flipper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.push_right_in));
+	    flipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.push_right_out));  
+		flipper.showPrevious();
+	}
+	
+	private void pageNext(){
+		flipper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_in));
+	    flipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_out));  
+		flipper.showNext();
 	}
 }
