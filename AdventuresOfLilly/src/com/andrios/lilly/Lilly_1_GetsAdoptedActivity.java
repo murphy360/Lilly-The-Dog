@@ -1,9 +1,6 @@
 package com.andrios.lilly;
 
 
-import java.util.ArrayList;
-
-
 import android.app.Activity;
 import android.gesture.Gesture;
 import android.gesture.GestureLibraries;
@@ -18,13 +15,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
+
+import java.util.ArrayList;
 
 public class Lilly_1_GetsAdoptedActivity extends Activity implements OnGesturePerformedListener {
    
@@ -68,7 +66,7 @@ public class Lilly_1_GetsAdoptedActivity extends Activity implements OnGesturePe
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.menu, menu);
+	    inflater.inflate(R.menu.menu, menu);//TODO... this is a blank file i just made
 	    //menu.getItem(0).setIcon(R.drawable.button_text_on);
 	    //menu.getItem(1).setIcon(R.drawable.button_speech_off);
 	    
@@ -416,8 +414,10 @@ public class Lilly_1_GetsAdoptedActivity extends Activity implements OnGesturePe
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle item selection
-	    switch (item.getItemId()) {
-	    case R.id.menuTextBTN:
+	    /**
+        switch (item.getItemId()) {
+
+            case R.id.menuTextBTN:
 	    	toggleText();
 	    	
 	        return true;
@@ -430,6 +430,8 @@ public class Lilly_1_GetsAdoptedActivity extends Activity implements OnGesturePe
 	    default:
 	        return super.onOptionsItemSelected(item);
 	    }
+         **/
+        return false;
 	}
 	
 	private void pagePrevious(){
